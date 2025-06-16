@@ -30,7 +30,7 @@ func checkDate(task *db.Task) error {
 		if len(task.Repeat) == 0 {
 			task.Date = now.Format(FormatDate)
 		} else {
-			task.Date = next
+			task.Date = next // устанавливаем следующую дату
 		}
 	}
 	return nil
