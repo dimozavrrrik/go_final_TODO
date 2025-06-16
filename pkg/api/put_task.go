@@ -8,6 +8,7 @@ import (
 	"go1f/pkg/db"
 )
 
+// putTaskHandler
 func putTaskHandler(w http.ResponseWriter, r *http.Request) {
 	var task db.Task
 	err := json.NewDecoder(r.Body).Decode(&task)

@@ -74,10 +74,10 @@ func NextDateHadnler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	next, err := NextDate(now, dstart, repeat)
+	next, err := NextDate(now, dstart, repeat) // получаетследующую дату
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
-	w.Write([]byte(next))
+	w.Write([]byte(next)) // возвращает следующую дату
 }

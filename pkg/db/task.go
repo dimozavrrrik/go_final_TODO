@@ -1,5 +1,6 @@
 package db
 
+// Task модель задачи
 type Task struct {
 	ID      string `json:"id"`
 	Date    string `json:"date"`
