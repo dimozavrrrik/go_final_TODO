@@ -59,22 +59,22 @@ func NextDate(now time.Time, dstart string, repeat string) (string, error) {
 
 // NextDateHadnler получает дату и повторение и возвращает следующую дату
 func NextDateHadnler(w http.ResponseWriter, r *http.Request) {
-	nowStr := r.FormValue("now")
-	dstart := r.FormValue("date")
-	repeat := r.FormValue("repeat")
-	var now time.Time
-	var err error
-	if nowStr == "" {
-		now = time.Now()
+	nowStr := r.FormValue("now")    // получает текущую дату
+	dstart := r.FormValue("date")   // получает начальную дату
+	repeat := r.FormValue("repeat") // получает повторение
+	var now time.Time               // текущая дата
+	var err error                   // ошибка
+	if nowStr == "" {               // если текущая дата не указана
+		now = time.Now() // устанавливает текущую дату
 	} else {
-		now, err = time.Parse(FormatDate, nowStr)
+		now, err = time.Parse(FormatDate, nowStr) // парсит текущую дату
 		if err != nil {
 			http.Error(w, "Неверный формат записи даты", http.StatusBadRequest)
 			return
 		}
 	}
 
-	next, err := NextDate(now, dstart, repeat) // получаетследующую дату
+	next, err := NextDate(now, dstart, repeat) // получает следующую дату
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
