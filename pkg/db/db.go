@@ -2,7 +2,6 @@ package db
 
 import (
 	"database/sql"
-	"fmt"
 	"os"
 
 	_ "modernc.org/sqlite"
@@ -28,7 +27,7 @@ func Init() error {
 
 	dbFile := os.Getenv("TODO_DBFILE") // переменная окружения
 	if dbFile == "" {
-		return fmt.Errorf("TODO_DBFILE не установлена")
+		dbFile = "./scheduler.db"
 	}
 
 	var install bool          // флаг установки

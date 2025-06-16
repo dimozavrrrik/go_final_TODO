@@ -10,13 +10,10 @@ import (
 
 func main() {
 	// загрузка файла .env
-	err := godotenv.Load()
-	if err != nil {
-		log.Println("ошибка загрузки .env")
-		return
-	}
+	_ = godotenv.Load()
+
 	// Подключение к бд
-	err = db.Init()
+	err := db.Init()
 	if err != nil {
 		log.Fatalf("Ошибка инициализации базы данных: %v", err)
 	}

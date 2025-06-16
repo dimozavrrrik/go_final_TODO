@@ -8,7 +8,6 @@ import (
 	"strconv"
 
 	"go1f/pkg/api"
-	//"github.com/joho/godotenv"
 )
 
 // Run запускает сервер
@@ -16,7 +15,9 @@ func Run() {
 	api.Init() // инициализация api-handler
 
 	port := os.Getenv("TODO_PORT") // переменная окружения
-
+	if port == "" {
+		port = "7540"
+	}
 	adrr, err := strconv.Atoi(port) // преобразование в int
 	if err != nil {
 		fmt.Println("Ошибка переменной окружения TODO_PORT")

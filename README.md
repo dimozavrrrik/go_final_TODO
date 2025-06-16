@@ -19,3 +19,4 @@ var Token = ``
 
 ## Запуск: 
 go run main.go
+
